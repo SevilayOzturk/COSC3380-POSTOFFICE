@@ -36,7 +36,11 @@ router.get('/userid/:id', async function(req,res,next) {
     let id = req.params.id;
     console.log('ID: ${id}',id);
     try {
+<<<<<<< HEAD
         res.json(await customersService.getById(id));
+=======
+        res.json(await customersService.getCustomer(id));
+>>>>>>> d5a67efcec8ba921af60442605e2f7fea11e35a9
         } catch (err) {
             console.error(`Error `, err.message);
             next(err);
