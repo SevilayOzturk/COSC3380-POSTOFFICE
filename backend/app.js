@@ -1,15 +1,11 @@
 const express = require('express');
-<<<<<<< HEAD
+
 const app = express();
-=======
-const app=express();
->>>>>>> d5a67efcec8ba921af60442605e2f7fea11e35a9
 const cors = require('cors');
 const port = 3000;
 
 app.use(cors());
 app.use(express.json());
-<<<<<<< HEAD
 
 //Routes Includes
 const customersRouter = require('./routes/customers');
@@ -33,19 +29,4 @@ app.get('/',(req,res)=>{
 });
 
 
-=======
-
-//Routes Includes
-const customersRouter = require('./routes/customers');
-
-app.get('/',(req,res)=>{
-    res.json({
-        message:'Welcome to the Backend'
-    });
-});
-
-//Routes
-app.use('/app/customers', customersRouter);
-
->>>>>>> d5a67efcec8ba921af60442605e2f7fea11e35a9
 app.listen(port, ()=>console.log(`Server is running on port ${port}`));

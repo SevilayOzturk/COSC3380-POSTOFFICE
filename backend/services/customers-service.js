@@ -45,16 +45,7 @@ async function createCustomer(req) {
         [First_Name, Middle_Init, Last_Name, Customer_Phone_Num, Customer_Address_Key]);
 
     // const customer = await db.query(`INSERT INTO Customer (First_Name, Middle_Init, Last_Name, Customer_Phone_Num, Customer_Address_Key) VALUES ('first','m','last',123456,1)`);
-    
-    
-<<<<<<< HEAD
-  
-=======
-    // JESUS christ watch this video at 2:25 am mark..because of one capital letter took like 20 mins lol
-    
-    // you need customer_id auto incrementing @ 2:40am
-    
->>>>>>> d5a67efcec8ba921af60442605e2f7fea11e35a9
+
     console.log("CreateCustomer:", customer);
     return {"message": "Customer created"};
 }
