@@ -1,0 +1,75 @@
+//Express
+const express = require('express');
+const cors = require('cors');
+const router = express.Router();
+
+const trackingsService = require('../services/trackings-service');
+const postoffices = require('../services/postoffice')
+router.get('/', async function(req,res,next) {
+    try {
+        res.json('trackings');
+    } catch (err) {
+        next(err);
+    }
+});
+
+router.get('/all-trackings', async function(req,res,next) {
+    try {
+        res.json(await trackingsService.get(req.query.page));
+        } catch (err) {
+            console.error(`Error `, err.message);
+            next(err);
+
+        }   
+});
+
+router.get('/all', async function(req,res,next) {
+    try {
+        res.json(await trackingsService.getData());
+        } catch (err) {
+            console.error(`Error `, err.message);
+            next(err);
+        }
+});
+
+router.get('/userid/:id', async function(req,res,next) {
+    let id = req.params.id;
+    console.log('ID: ${id}',id);
+    try {
+        res.json(await trackingsService.getById(id));
+        } catch (err) {
+            console.error(`Error `, err.message);
+            next(err);
+        }
+});
+
+router.post('/createtracking', async function(req,res,next) {
+    try {
+        res.json(await trackingsService.createtracking(req));
+        } catch (err) {
+            console.error(`Error `, err.message);
+            next(err);
+            }
+});
+
+router.put('/updatetracking/:id', async function(req,res,next) {
+    try {
+        res.json(await trackingsService.updatetracking(req));
+        } catch (err) {
+            console.error(`Error `, err.message);
+            next(err);
+            }
+});
+
+router.delete('/removetracking/:id', async function(req,res,next) {
+    try {
+        res.json(await trackingsService.removetracking(req));
+        } catch (err) {
+            console.error(`Error `, err.message);
+            next(err);
+            }
+});
+
+                  
+
+module.exports = router;
