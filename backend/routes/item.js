@@ -32,7 +32,7 @@ router.get('/all', async function(req,res,next) {
         }
 });
 
-router.get('/userid/:id', async function(req,res,next) {
+router.get('/itemid/:id', async function(req,res,next) {
     let id = req.params.id;
     console.log('ID: ${id}',id);
     try {
@@ -62,6 +62,8 @@ router.put('/updateitem/:id', async function(req,res,next) {
 });
 
 router.delete('/removeitem/:id', async function(req,res,next) {
+    let id = req.params.id;
+    console.log('ID: ${id}',id);
     try {
         res.json(await itemService.removeItem(req));
         } catch (err) {

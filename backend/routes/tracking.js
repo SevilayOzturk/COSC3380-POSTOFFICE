@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const router = express.Router();
 
-const trackingsService = require('../services/trackings-service');
+const trackingsService = require('../services/tracking-service');
 const postoffices = require('../services/postoffice')
 router.get('/', async function(req,res,next) {
     try {

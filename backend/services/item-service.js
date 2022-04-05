@@ -30,7 +30,7 @@ async function getById(Item_ID) {
     return data;
 }
 
-async function createItems(req) {
+async function createItem(req) {
     const PO_ID = req.body.PO_ID;
     const Item_ID = req.body.Item_ID;;
     const Item_Name = req.body.Item_Name;
@@ -50,7 +50,7 @@ async function createItems(req) {
     return {"message": "Item created"};
 }
 
-async function updateItems(req) {
+async function updateItem(req) {
     const PO_ID = req.body.PO_ID;
     const Item_Name = req.body.Item_Name;
     const Item_Count = req.body.Item_Count;
@@ -66,11 +66,15 @@ async function updateItems(req) {
     
 }
 
-async function removeItems(req) {
+async function removeItem(req) {
     let id = req.body.id;
-
+    
     const remove = await db.query(`DELETE FROM Items WHERE Item_ID = ?`, [id]);
-    return {"message": "Item deleted"};
+    let message = `Error deleting item ${id}`
+    if (remove.affectedRows) {
+        message = `Item ${id} was deleted`
+    }
+    return {message};
 }
 
 module.exports = {
@@ -78,7 +82,7 @@ module.exports = {
     getItems,
     getData,
     getById,
-    createItems,
-    updateItems,
-    removeItems
+    createItem,
+    updateItem,
+    removeItem
 }
