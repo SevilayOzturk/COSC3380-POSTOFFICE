@@ -1,0 +1,151 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
+
+
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="images/pinkpostlogo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="login.html">REGISTER / SIGN IN</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- Login Container inside of the header -->
+        <div class="container">
+            <div class="forms">
+                <div class="form login">
+                    <span class="title">Login</span>
+    
+                    <form action="#">
+                        <div class="input-field">
+                            <input type="text" placeholder="Enter your email" required>
+                            <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" class="password" placeholder="Enter your password" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+    
+                        <div class="checkbox-text">
+                            <div class="checkbox-content">
+                                <input type="checkbox" id="logCheck">
+                                <label for="logCheck" class="text">Remember me</label>
+                            </div>
+                            
+                            <a href="#" class="text">Forgot password?</a>
+                        </div>
+    
+                        <div class="input-field button">
+                            <input type="button" value="Login Now">
+                        </div>
+                    </form>
+    
+                    <div class="login-signup">
+                        <span class="text">Not a member?
+                            <a href="#" class="text signup-link">Signup now</a>
+                        </span>
+                    </div>
+                </div>
+    
+                <!-- Registration Form that appears upon clicking -->
+                <div class="form signup">
+                    <span class="title">Registration</span>
+    
+                    <form action="#">
+                        <div class="input-field">
+                            <input type="text" placeholder="Enter your name" required>
+                            <i class="uil uil-user"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" placeholder="Enter your email" required>
+                            <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" class="password" placeholder="Create a password" required>
+                            <i class="uil uil-lock icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" class="password" placeholder="Confirm a password" required>
+                            <i class="uil uil-lock icon"></i>
+                            <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+    
+                        <div class="checkbox-text">
+                            <div class="checkbox-content">
+                                <input type="checkbox" id="sigCheck">
+                                <label for="sigCheck" class="text">Remember me</label>
+                            </div>
+                            
+                            <a href="#" class="text">Forgot password?</a>
+                        </div>
+    
+                        <div class="input-field button">
+                            <input type="button" value="Login Now">
+                        </div>
+                    </form>
+    
+                    <div class="login-signup">
+                        <span class="text">Already a member?
+                            <a href="#" class="text login-link">Login now</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <script>
+        const container = document.querySelector(".container"),
+        pwShowHide = document.querySelectorAll(".showHidePw"),
+        pwFields = document.querySelectorAll(".password"),
+        signUp = document.querySelector(".signup-link"),
+        login = document.querySelector(".login-link");
+
+        // shows and hides password and changing icons
+        pwShowHide.forEach(eyeIcon =>{
+            eyeIcon.addEventListener("click", ()=>{
+                pwFields.forEach(pwField =>{
+                    if(pwField.type ==="password"){
+                        pwField.type = "text";
+
+                        pwShowHide.forEach(icon =>{
+                            icon.classList.replace("uil-eye-slash", "uil-eye");
+                        })
+                    }else{
+                        pwField.type = "password";
+
+                        pwShowHide.forEach(icon =>{
+                            icon.classList.replace("uil-eye", "uil-eye-slash");
+                        })
+                    }
+                }) 
+            })
+        })
+
+        // alternate between signup and register form
+        signUp.addEventListener("click", ( )=>{
+            container.classList.add("active");
+        });
+        login.addEventListener("click", ( )=>{
+            container.classList.remove("active");
+        });
+
+    </script>
+
+
+
+
+</body>
+</html>
