@@ -32,7 +32,7 @@ router.get('/all', async function(req,res,next) {
         }
 });
 
-router.get('/userid/:id', async function(req,res,next) {
+router.get('/supervisionid/:id', async function(req,res,next) {
     let id = req.params.id;
     console.log('ID: ${id}',id);
     try {

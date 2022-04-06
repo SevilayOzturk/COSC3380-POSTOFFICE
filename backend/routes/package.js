@@ -13,7 +13,7 @@ router.get('/', async function(req,res,next) {
     }
 });
 
-router.get('/all-packages', async function(req,res,next) {
+router.get('/all-package', async function(req,res,next) {
     try {
         res.json(await packagesService.get(req.query.page));
         } catch (err) {
@@ -32,7 +32,7 @@ router.get('/all', async function(req,res,next) {
         }
 });
 
-router.get('/userid/:id', async function(req,res,next) {
+router.get('/psotOfficeid/:id', async function(req,res,next) {
     let id = req.params.id;
     console.log('ID: ${id}',id);
     try {

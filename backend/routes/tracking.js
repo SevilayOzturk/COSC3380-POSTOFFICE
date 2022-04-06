@@ -32,7 +32,7 @@ router.get('/all', async function(req,res,next) {
         }
 });
 
-router.get('/userid/:id', async function(req,res,next) {
+router.get('/trackingid/:id', async function(req,res,next) {
     let id = req.params.id;
     console.log('ID: ${id}',id);
     try {
@@ -45,7 +45,7 @@ router.get('/userid/:id', async function(req,res,next) {
 
 router.post('/createtracking', async function(req,res,next) {
     try {
-        res.json(await trackingsService.createtracking(req));
+        res.json(await trackingsService.createTracking(req));
         } catch (err) {
             console.error(`Error `, err.message);
             next(err);
@@ -54,7 +54,7 @@ router.post('/createtracking', async function(req,res,next) {
 
 router.put('/updatetracking/:id', async function(req,res,next) {
     try {
-        res.json(await trackingsService.updatetracking(req));
+        res.json(await trackingsService.updateTracking(req));
         } catch (err) {
             console.error(`Error `, err.message);
             next(err);
@@ -63,7 +63,7 @@ router.put('/updatetracking/:id', async function(req,res,next) {
 
 router.delete('/removetracking/:id', async function(req,res,next) {
     try {
-        res.json(await trackingsService.removetracking(req));
+        res.json(await trackingsService.removeTracking(req));
         } catch (err) {
             console.error(`Error `, err.message);
             next(err);
