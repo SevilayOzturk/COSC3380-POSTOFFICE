@@ -36,13 +36,16 @@ async function createCustomer(req) {
     const Last_Name = req.body.Last_Name;
     const Customer_Phone_Num = req.body.Customer_Phone_Num;
     const Customer_Address_Key = req.body.Customer_Address_Key; 
-    
-    console.log("CreateCustomer", First_Name, Middle_Init, Last_Name, Customer_Phone_Num, Customer_Address_Key);
+    const email = req.body.email; 
+    const password = req.body.password; 
+
+
+    console.log("CreateCustomer", First_Name, Middle_Init, Last_Name, Customer_Phone_Num, Customer_Address_Key, email, password);
 
     const customer = await db.query(
-        `INSERT INTO Customer (First_Name, Middle_Init, Last_Name, Customer_Phone_Num, Customer_Address_Key) 
-        VALUES (?,?,?,?,?)`, 
-        [First_Name, Middle_Init, Last_Name, Customer_Phone_Num, Customer_Address_Key]);
+        `INSERT INTO Customer (First_Name, Middle_Init, Last_Name, Customer_Phone_Num, Customer_Address_Key, email, password) 
+        VALUES (?,?,?,?,?,?,?)`, 
+        [First_Name, Middle_Init, Last_Name, Customer_Phone_Num, Customer_Address_Key,email, password]);
 
     // const customer = await db.query(`INSERT INTO Customer (First_Name, Middle_Init, Last_Name, Customer_Phone_Num, Customer_Address_Key) VALUES ('first','m','last',123456,1)`);
 
@@ -55,12 +58,14 @@ async function updateCustomer(req) {
     const Middle_Init = req.body.Middle_Init;;
     const Last_Name = req.body.Last_Name;
     const Customer_Phone_Num = req.body.Customer_Phone_Num;
+    const email = req.body.email; 
+    const password = req.body.password; 
 
-    console.log("Update Customer:", First_Name, Middle_Init, Last_Name, Customer_Phone_Num);
+    console.log("Update Customer:", First_Name, Middle_Init, Last_Name, Customer_Phone_Num, email, password);
 
     const customer = await db.query(
-        `UPDATE Customer SET First_Name = ?, Middle_Init = ?, Last_Name = ?, Customer_Phone_Num = ? WHERE Customer_ID = ?`,
-        [First_Name, Middle_Init, Last_Name, Customer_Phone_Num, req.params.id]);
+        `UPDATE Customer SET First_Name = ?, Middle_Init = ?, Last_Name = ?, Customer_Phone_Num = ?, email=?, password=? WHERE Customer_ID = ?`,
+        [First_Name, Middle_Init, Last_Name, Customer_Phone_Num, email, password, req.params.id]);
     
         return("message", "Customer updated");
     

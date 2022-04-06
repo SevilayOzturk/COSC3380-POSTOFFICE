@@ -41,13 +41,15 @@ async function createEmployee(req) {
     const Super_ID = req.body.Super_ID;
 
     const Employee_ID = req.Employee_ID;
+    const email = req.body.email; 
+    const password = req.body.password; 
     
-    console.log("CreateEmployee", First_Name, Middle_Init, Last_Name, Employee_Phone_Num, Employee_Address_Key, Office_ID, Super_ID);
+    console.log("CreateEmployee", First_Name, Middle_Init, Last_Name, Employee_Phone_Num, Employee_Address_Key, Office_ID, Super_ID, email, password);
 
     const employee = await db.query(
-        `INSERT INTO Employee (First_Name, Middle_Init, Last_Name, Employee_Address_Key, Employee_Phone_Num, Office_ID, Super_ID) 
-        VALUES (?,?,?,?,?,?,?)`, 
-        [First_Name, Middle_Init, Last_Name, Employee_Address_Key, Employee_Phone_Num, Office_ID, Super_ID]);
+        `INSERT INTO Employee (First_Name, Middle_Init, Last_Name, Employee_Address_Key, Employee_Phone_Num, Office_ID, Super_ID, email, password) 
+        VALUES (?,?,?,?,?,?,?,?,?,?)`, 
+        [First_Name, Middle_Init, Last_Name, Employee_Address_Key, Employee_Phone_Num, Office_ID, Super_ID, email, password]);
 
     console.log("CreateEmployee:", employee);
     return {"message": "Employee created"};
@@ -61,12 +63,13 @@ async function updateEmployee(req) {
 
     const Office_ID = req.body.Employee_Office_ID;
     const Super_ID = req.body.Super_ID;
-
-    console.log("Update Employee:", First_Name, Middle_Init, Last_Name, Employee_Phone_Num);
+    const email = req.body.email; 
+    const password = req.body.password; 
+    console.log("Update Employee:", First_Name, Middle_Init, Last_Name, Employee_Phone_Num, email, password);
 
     const employee = await db.query(
-        `UPDATE Employee SET First_Name = ?, Middle_Init = ?, Last_Name = ?, Employee_Phone_Num = ? WHERE Employee_ID = ?`,
-        [First_Name, Middle_Init, Last_Name, Employee_Phone_Num, req.params.id]);
+        `UPDATE Employee SET First_Name = ?, Middle_Init = ?, Last_Name = ?, Employee_Phone_Num = ?, email=?, password=? WHERE Employee_ID = ?`,
+        [First_Name, Middle_Init, Last_Name, Employee_Phone_Num,email, password, req.params.id]);
     
         return("message", "Employee updated");
     
