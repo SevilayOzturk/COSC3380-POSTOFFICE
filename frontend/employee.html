@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <link rel="stylesheet" href="employee_page_style.css">
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <a class="home_image" href=""><img class="logo" src="PINK.png"></a>  
+            <li style="float:right"><a class="logout" href="">Logout</a></li>
+            <li style="float:right"><a href="">Notifications</a></li>
+            <!--Make dropdown menu thing for notifications-->
+        </ul>
+    </div>    
+    <!--get employee info from db-->
+    <div class="container">
+        <div class="leftbox">
+            <div class="employee_info">
+                <h1>Employee Information</h1>
+                <h2>First Name</h2>
+                    <input type="text" class="Fname" value="placeholderName" readonly>
+                    <p>note: idk how to retrieve this data yet</p> 
+                <h2>Last Name</h2>
+                    <input type="text" class="Lname" value="placeholderName" readonly>
+                <h2>Employee ID</h2>
+                    <input type="text" class="employee_id" value="placeholder" readonly>    
+                <h2>Address</h2>
+                    <input type="text" class="address" value="placeholderAddress" readonly>
+                <h2>Phone Number</h2>
+                    <input type="text" class="pno" value="5555555555" readonly>
+                <h2>Works at</h2>
+                <input type="text" class="works_at" value="PO x" readonly>
+                <br></br>
+                <button class="btn">Edit User Info</button>
+            </div>
+        </div>
+
+        <!--Extremely lazy solution to keeping content on right side of page without fiddling with flex box,
+            Invisible container-->
+        <div class="invisible1"></div>
+
+        <!--objects here are on the right side of the page-->
+        
+        <!--Fetch information about customer and what they want to send-->
+        <div class="package_info">
+            <h1>Create Package</h1>
+            <!--Fetch customer ID to get info for their package-->
+            <h2>Customer ID</h2> 
+                <input type="text" class="custID" value="5555555555" required>
+                <button class="btn">Get Package Info</button>
+            
+            <h2>Package to be Sent</h2> 
+            
+            <!--Fetch where customer chose to drop off package-->    
+            <h3>Package is sent from:</h3>
+                    <input type="text" class="PO_start" value="PO start" readonly>
+                
+                    <!--Fetch package info and populate table-->
+                    <h3>Customer Package Information:</h3>
+                        <table>
+                            <tr>
+                                <th>Package ID</th>
+                                <th>Destination Address</th>
+                                <th>Price</th>
+                                <th>State</th>
+                                <th>Zipcode</th>
+                                <th>Package Weight (lbs)</th>
+                                <th>Package Volume (lbs^3)</th>
+                            </tr>
+                        </table>
+            <br></br>    
+            <h3>Send to next PO:</h3>
+                <select name="PO">
+                    <option value="" selected="selected">Select</option>
+                    <option value="AL">po 1</option>
+                    <option value="AL">po 2</option>
+                    <option value="AL">PO 3</option>
+                    <option value="AL">po 4</option>
+                    <option value="AL">po 5</option>
+                </select>
+            <button class="btn">Send</button>
+        </div>
+        
+        <div class="update_tracking">
+            <form method="POST" action:"" enctype="multipart/form-data">
+                <h1>Update Tracking</h1>
+                <h2>Package ID</h2> 
+                <input type="text" class="packageID" value="5555555555" required>
+                <button class="btn">Get Package Info</button>
+                <h2>Select Current PO:</h2>
+                <select name="PO" required>
+                    <option value="" selected="selected">Select</option>
+                    <option value="AL">po 1</option>
+                    <option value="AL">po 2</option>
+                    <option value="AL">PO 3</option>
+                    <option value="AL">po 4</option>
+                    <option value="AL">po 5</option>
+                </select>
+                <h2>Time</h2>
+                    <input type="datetime-local" required>  
+                <br></br>
+                    <button class="btn">Confirm</button>
+        </div>
+
+        <div class="invisible2"></div>
+
+        <!--Actions required
+        -Get current inventory count of items
+        -Update inventory with added items specified-->
+        <div class="Inventory">
+            <h1>Inventory</h1>
+            <button class="btn">Update Inventory Information</button>
+            <br></br>
+            
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Inventory Count</th>
+                    <th>Add Inventory</th>
+                    <th>Update</th>
+                </tr>
+                <tr>
+                    <td>S Box</td>
+                    <td>$x.xx</td>
+                    <td><input type="text" name="inventory_count" value="x" readonly/></td>
+                    <td><input type="number" name="shop_box_amount" min="0" required/></td>
+                    <td><button class="addtocart">Update</button></td>
+                </tr>
+                <tr>
+                    <td>M Box</td>
+                    <td>$x.xx</td>
+                    <td><input type="text" name="inventory_count" value="x" readonly/></td>
+                    <td><input type="number" name="shop_box_amount" min="0" required/></td>
+                    <td><button class="addtocart">Update</button></td>
+                </tr>
+                <tr>
+                    <td>L Box</td>
+                    <td>$x.xx</td>
+                    <td><input type="text" name="inventory_count" value="x" readonly/></td>
+                    <td><input type="number" name="shop_box_amount" min="0" required/></td>
+                    <td><button class="addtocart">Update</button></td>
+                </tr>
+                <tr>
+                    <td>S Envelope</td>
+                    <td>$x.xx</td>
+                    <td><input type="text" name="inventory_count" value="x" readonly/></td>
+                    <td><input type="number" name="shop_box_amount" min="0" required/></td>
+                    <td><button class="addtocart">Update</button></td>
+                </tr>
+                <tr>
+                    <td>M Envelope</td>
+                    <td>$x.xx</td>
+                    <td><input type="text" name="inventory_count" value="x" readonly/></td>
+                    <td><input type="number" name="shop_box_amount" min="0" required/></td>
+                    <td><button class="addtocart">Update</button></td>
+                </tr>
+                <tr>
+                    <td>L Envelope</td>
+                    <td>$x.xx</td>
+                    <td><input type="text" name="inventory_count" value="x" readonly/></td>
+                    <td><input type="number" name="shop_box_amount" min="0" required/></td>
+                    <td><button class="addtocart">Update</button></td>
+                </tr>
+                <tr>
+                    <td>Stamp A</td>
+                    <td>$x.xx</td>
+                    <td><input type="text" name="inventory_count" value="x" readonly/></td>
+                    <td><input type="number" name="shop_box_amount" min="0" required/></td>
+                    <td><button class="addtocart">Update</button></td>
+                </tr>
+                <tr>
+                    <td>Stamp B</td>
+                    <td>$x.xx</td>
+                    <td><input type="text" name="inventory_count" value="x" readonly/></td>
+                    <td><input type="number" name="shop_box_amount" min="0" required/></td>
+                    <td><button class="addtocart">Update</button></td>
+                </tr>
+                <tr>
+                    <td>Stamp C</td>
+                    <td>$x.xx</td>
+                    <td><input type="text" name="inventory_count" value="x" readonly/></td>
+                    <td><input type="number" name="shop_box_amount" min="0" required/></td>
+                    <td><button class="addtocart">Update</button></td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+    
+
+    
+</body>
+</body>
+</html>
