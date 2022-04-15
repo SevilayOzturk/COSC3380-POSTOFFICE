@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Self Services</title>
+<link rel="stylesheet" href="temp.css">
+<!-- font for webpage -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+<!-- icons which will be used for smaller screens like cellphones -->
+<!-- whenever you see seomthing with fa that's an icon. If you want to search online for the fa name just type something like envelope fa icon -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<!-- BOX ICON FOR SHOPPING CART  -->
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/pinkpostlogo.png"></a>
+            <div class="nav-links" id="navLinks">  
+                <i class="fa fa-close" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.html">ABOUT</a></li>
+                    <li><a href="login.html">REGISTER / SIGN IN</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="employee-temp.html">EMPLOYEE SELF SERVICES</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+            <h1></h1>
+    </section>
+
+    
+    <script src="temp.js"></script>
+
+    <!-- Side Bar -->
+    <section class="side-bar-container">
+        <div class="side-bar" id="sidebar">
+            <!-- insert icon here -->
+            <div class="list">
+                <div class="icons"><i class="fa fa-user" aria-hidden="true"></i><p id="icon-txt">Employee Information</p></div>
+                <div class="icons"><i class="fa fa-dropbox" aria-hidden="true"></i><p id="icon-txt">Create Package</p></div>
+                <div class="icons"><i class="fa fa-truck" aria-hidden="true"></i><p id="icon-txt">Update Tracking</p></div>
+                <div class="icons"><i class="fa fa-book" aria-hidden="true"></i><p id="icon-txt">Update Inventory</p></div>
+            </div>
+
+            <!-- list bottom-->
+
+
+        </div>
+
+        <!-- content -->
+        <div class="content">
+        
+            <div class="form-col">
+                <div>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span>
+                        <h5>Employee Information</h5>
+                    </span>
+                </div>
+
+                <form method="post" action="">
+                <div>
+                    <span>
+                        <h2>First Name</h2>
+                    </span>
+                </div>
+                <input type="text" name="fname" placeholder="Enter your updated first name" required>
+
+                <div>
+                    <span>
+                        <h2>Last Name</h2>
+                    </span>
+                </div>
+                <input type="text" name="lname" placeholder="Enter your updated last name" required>
+
+                <div>
+                    <span>
+                        <h2>Employee ID</h2>
+                    </span>
+                </div>
+                <input type="text" name="employee-id" placeholder="Employee ID" required>
+
+                <div>
+                    <span>
+                        <h2>Address</h2>
+                    </span>
+                </div>
+                <input type="text" name="address" placeholder="Enter your updated address" required>
+
+                <div>
+                    <span>
+                        <h2>Phone Number</h2>
+                    </span>
+                </div>
+                <input type="text" name="phone-number" placeholder="Enter your updated phone number" required>
+
+                <div>
+                    <span>
+                        <h2>Works At</h2>
+                    </span>
+                </div>
+                <input type="text" name="location" placeholder="Post Office Location" required>
+    
+                <button type="submit" class="hero-btn red-btn">Edit Information</button>
+                </form> 
+            </div>
+
+            <!-- don't remove: will mess up side bar, so just hide by using color white in css -->
+            <p class="heading"> HEADING </p>
+            <p class="paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus blanditiis cumque voluptate laboriosam? Voluptate delectus saepe impedit, dolores aliquam in possimus corporis rerum a quam itaque dolor animi cupiditate expedita.</p>
+            
+        </div>
+
+    </section>
+    
+</body>
+</html>    

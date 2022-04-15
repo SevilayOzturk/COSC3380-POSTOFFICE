@@ -1,0 +1,252 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/************************************** NAV BAR STYLES **************************************/
+/* moving nav bar to top right */
+nav{
+    display: flex;
+    padding: 2% 4%;
+    justify-content: space-between;
+    align-items: center;
+}
+/* pink post logo */
+nav img{
+    width: 135px; 
+}
+.nav-links{
+    flex: 1; /* to occupy all of the space in row */
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none; /* removing bullets */
+    display: inline-block; /* horizontal display */
+    padding: 8px 12px;
+    position: relative;
+}
+/* making nav links white */
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+/* adding a blank line under links that will appear after we hover over a certain link */
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #FF013F; /*use this dark pink / red hex throughout the site since it's the hex for our logo bird color.*/
+    display: block;
+    margin: auto;
+    transition: .5s;    
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+/* turning off fa icons that were used for smaller devices under @media */
+nav .fa{
+    display: none;
+}
+
+
+/************************************** HEADER **************************************/
+/*styles for the header on contact page: slightly different from home pag which is just called header*/
+.sub-header{
+    /*position: sticky;
+    top: 0;
+    z-index: 1;*/
+
+    height: 25vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/post.jpeg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    /* make sure shop items aren't touching the header */
+    /*margin-bottom: 1.5rem;*/
+}
+.sub-header h1{
+    margin-top: -20px;
+    font-size: 36px;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************** CONTACT US PAGE **************************************/
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+
+    margin-left: -5%;
+}
+
+
+.employee-forms{
+    width: 80%;
+    margin: auto;
+}
+.form-col{
+    flex-basis: 48%;
+    margin-bottom: 30px;
+}
+.form-col div{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.form-col div .fa{
+    font-size: 28px;
+    color: #FF013F;
+    margin: 10px;
+    margin-right: 30px;
+}
+.form-col div p{
+    padding: 0;
+}
+.form-col div h5{
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 400;
+}
+
+.form-col div h2{
+    font-size: 15px;
+    margin-bottom: 3px;
+    color: #555;
+    font-weight: 400;
+}
+
+.form-col input, .form-col textarea{
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 17px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #FF013F;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: #FF013F;
+    position: relative;
+    cursor: pointer;
+    transition: 1s;
+}
+/*
+.hero-btn:hover{
+    border: 1px solid #FF013F;
+    background: #FF013F;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************** FOOTER STYLES **************************************/
+.icons .fa{
+    color: #FF013F;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+
+/*******************  sidebar *************/
+.side-bar-container{
+    width: 100%;
+    display: flex;
+}
+.side-bar{
+    width: 650px;
+    height: 93.5vh;
+    background-image: linear-gradient(#696969, #242424);
+    box-shadow: 0px 0px 10px 2px rgb(43, 43, 43);
+    /*check if need to add this!!!*/
+    position: -webkit-sticky;
+    position: sticky;
+
+
+    top: 0;
+    padding-bottom: 100;
+}
+
+.list{
+    margin: 20px 30px;
+
+
+    margin-left: 1;
+}
+
+.list .icons{
+    display: flex;
+    align-items: baseline;
+    padding: 12px 0px;
+    color: white;
+}
+
+.list .icons:hover{
+    background-color: #818181;
+    cursor: pointer;
+    padding: 12px 10px;
+    border-radius: 10px;
+}
+
+.list .icons p{
+    margin-left: 20px;
+}
+
+.content{
+    padding: 40px 80px;
+
+    margin-top: -60px;
+}
+.heading{
+    font-size: 40px;
+    font-weight: 600;
+    padding: 80px 0px;
+    color: white;
+}
+.paragraph{
+    margin-top: -100px;
+    color: white;
+}
+
+.form-col{
+    padding: 80px 0px;
+}
